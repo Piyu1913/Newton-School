@@ -1,0 +1,46 @@
+import React, { useState, useMemo } from 'react';
+import ReactDOM from 'react-dom';
+
+const isArmstrongNumber = (num) => {
+  console.log('Checking for Armstrong Number...');
+  // Logic to check if num is an Armstrong number
+  // For demonstration, just returning false
+  return false;
+};
+
+const isPrimeNumber = (num) => {
+  console.log('Checking for Prime Number...');
+  // Logic to check if num is a Prime number
+  // For demonstration, just returning false
+  return false;
+};
+
+const App = () => {
+  const [inputValue, setInputValue] = useState('');
+
+  const isArmstrong = useMemo(() => {
+    if (!inputValue) return false;
+    return isArmstrongNumber(parseInt(inputValue));
+  }, [inputValue]);
+
+  const isPrime = useMemo(() => {
+    if (!inputValue) return false;
+    return isPrimeNumber(parseInt(inputValue));
+  }, [inputValue]);
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  return (
+    <div>
+      <input type="text" value={inputValue} onChange={handleInputChange} />
+      <div>
+        {isArmstrong && <p>Armstrong Number</p>}
+        {isPrime && <p>Prime Number</p>}
+      </div>
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
