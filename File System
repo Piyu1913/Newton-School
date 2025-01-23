@@ -1,0 +1,22 @@
+// Import the required 'fs' module
+const fs = require('fs');
+
+/**
+ * Function to create a new file with a given name and content.
+ *
+ * @param {string} fileName - The name of the file to be created.
+ * @param {string} fileContent - The content to be written in the file.
+ */
+function writeFile(fileName, fileContent) {
+  // Use the fs.writeFile method to create the file
+  fs.writeFile(fileName, fileContent, (err) => {
+    if (err) {
+      console.error('Error creating the file:', err);
+    } else {
+      console.log('File created successfully');
+    }
+  });
+}
+
+// Call the writeFile function to create "myfile.txt" with content "Newton School"
+writeFile('myfile.txt', 'Newton School');
